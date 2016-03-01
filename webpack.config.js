@@ -16,8 +16,10 @@ module.exports = {
     alias     : {
       'bootstrap-css'    : 'bootstrap/dist/css',
       'bootstrap-js'     : 'bootstrap/dist/js/umd',
-      'kendo-ui-core-css': 'kendo-ui-core/dist/styles/web',
-      'kendo-ui-core-js' : 'kendo-ui-core/src',
+      //'kendo-ui-core-css': 'kendo-ui-core/dist/styles/web',
+      //'kendo-ui-core-js' : 'kendo-ui-core/src',
+      'kendo-ui-core-css': './src/vendor/telerik.kendoui.2016.1.226.core/src/styles/web',
+      'kendo-ui-core-js' : './src/vendor/telerik.kendoui.2016.1.226.core/src/js',
     },
     extensions: ['', '.js', '.css', '.html', '.json'],
   },
@@ -27,9 +29,10 @@ module.exports = {
       'jquery',
       'font-awesome-webpack',
       'bootstrap-css/bootstrap.min',
-      'kendo-ui-core-css/kendo.common-bootstrap.core.min',
-      'kendo-ui-core-css/kendo.bootstrap.min',
-      'kendo-ui-core-js/kendo.window',
+      'kendo-ui-core-css/kendo.common-bootstrap.core',
+      'kendo-ui-core-css/kendo.bootstrap',
+      //'kendo-ui-core-js/kendo.window',
+      'kendo-ui-core-js/kendo.ui.core',
     ],
     app   : ['./src/main.js'],
   },
@@ -61,6 +64,9 @@ module.exports = {
         include: [
           path.join(__dirname, 'src'),
         ],
+        exclude: [
+          path.join(__dirname, 'src/vendor'),
+        ],
         loader : 'babel',
         query  : {
           presets: ['es2015', 'stage-0'],
@@ -70,7 +76,8 @@ module.exports = {
         test   : /\.js$/,
         include: [
           path.join(__dirname, 'node_modules/bootstrap/dist/js/umd'),
-          path.join(__dirname, 'node_modules/kendo-ui-core/src'),
+          //path.join(__dirname, 'node_modules/kendo-ui-core/src'),
+          path.join(__dirname, 'src/vendor/telerik.kendoui.2016.1.226.core/src/js'),
         ],
         loader : 'imports?jQuery=jquery',
       },
@@ -79,8 +86,11 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css'),
       },
       {
-        test  : /\.html$/,
-        loader: 'html',
+        test   : /\.html$/,
+        include: [
+          path.join(__dirname, 'src'),
+        ],
+        loader : 'html',
       },
       {
         test  : /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -96,10 +106,10 @@ module.exports = {
       },
       {
         test   : /\.json$/,
-        loader : 'json',
         include: [
           path.join(__dirname, 'src'),
         ],
+        loader : 'json',
       },
     ],
   },

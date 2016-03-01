@@ -11,5 +11,8 @@
       "urlComments"
     ]
   },
-  "requireDollarBeforejQueryAssignment": false
+  "requireDollarBeforejQueryAssignment": false,
+  "excludeFiles"                       : [
+    "src/vendor"
+  ]
 }
