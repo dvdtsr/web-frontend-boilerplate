@@ -21,7 +21,7 @@ Molly's automation principle:
 * Bootstrap 4 (and Font Awesome)
 * lodash
 * jQuery
-* Kendo UI (err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anybody home? *It's buggy!*) :pensive:
+* Kendo UI Core (err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive:
 * Webpack (and its development server)
 
 ## Installation
