@@ -5,7 +5,6 @@
 import './styles';
 import 'babel-polyfill';
 
-import $ from 'jquery';
 import { HelloWindow } from './components/HelloWindow';
 
 HelloWindow
