@@ -16,8 +16,7 @@ const HelloWindow = view
     width     : 600,
     height    : 300,
     title     : 'About Glenn Dwiyatcita',
-    visible   : true,
-    resizeable: false,
+    resizable : false,
     scrollable: false,
     actions   : [
       'Pin',
