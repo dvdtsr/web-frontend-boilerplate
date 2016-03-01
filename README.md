@@ -25,7 +25,7 @@ Molly's automation principle:
 * Webpack (and its development server)
 
 ## Installation
-* Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm)
+* Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
