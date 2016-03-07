@@ -3,8 +3,6 @@
  */
 
 import './styles';
-import 'babel-polyfill';
-
 import { HelloWindow } from './components/HelloWindow';
 
 HelloWindow
