@@ -27,6 +27,7 @@ module.exports = {
       'font-awesome-loader!./font-awesome.config.js',
       'lodash',
       'jquery',
+      'angular',
       'kendo-ui-core-css/kendo.common-bootstrap.core',
       'kendo-ui-core-css/kendo.bootstrap',
       //'kendo-ui-core-js/kendo.window',
@@ -34,7 +35,7 @@ module.exports = {
     ],
     app   : [
       'babel-polyfill',
-      './src/main.js',
+      './src/app.js',
     ],
   },
   output : {

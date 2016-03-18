@@ -5,6 +5,7 @@
   "license"        : "SEE LICENSE IN LICENSE.txt",
   "author"         : "Glenn Dwiyatcita (https://tiny.cc/dwiyatci)",
   "dependencies"   : {
+    "angular"      : "1.5.1",
     "bootstrap"    : "4.0.0-alpha.2",
     "font-awesome" : "4.5.0",
     "jquery"       : "2.2.2",
