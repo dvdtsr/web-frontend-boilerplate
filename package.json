@@ -30,7 +30,7 @@
     "commit"          : "git-cz"
   },
   "dependencies"   : {
-    "angular"      : "1.5.3",
+    "angular"      : "1.5.6",
     "bootstrap"    : "4.0.0-alpha.2",
     "font-awesome" : "4.6.3",
     "jquery"       : "2.2.4",
