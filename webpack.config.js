@@ -2,7 +2,7 @@
  * Created by glenn on 29/02/16.
  */
 
-const path              = require('path');
+const join              = require('path').join;
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -11,13 +11,11 @@ module.exports = {
   devtool  : 'eval',
   resolve  : {
     root      : [
-      path.join(__dirname, 'src'),
+      join(__dirname, 'src'),
     ],
     alias     : {
-      //'kendo-ui-core-css': 'kendo-ui-core/dist/styles/web',
-      //'kendo-ui-core-js' : 'kendo-ui-core/src',
-      'kendo-ui-core-css': './src/vendor/telerik.kendoui.2016.1.226.core/src/styles/web',
-      'kendo-ui-core-js' : './src/vendor/telerik.kendoui.2016.1.226.core/src/js',
+      'kendo-ui-core-css': 'kendo-ui-core/css/web',
+      'kendo-ui-core-js' : 'kendo-ui-core/js',
     },
     extensions: ['', '.js', '.css', '.html', '.json'],
   },
@@ -39,7 +37,7 @@ module.exports = {
     ],
   },
   output   : {
-    path      : path.join(__dirname, 'dist'),
+    path      : join(__dirname, 'dist'),
     filename  : '[name].js',
     publicPath: '/',
   },
@@ -53,8 +51,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html',
       favicon : './src/favicon.ico',
+      filename: 'index.html',
     }),
 
     new ExtractTextPlugin('[name].css'),
@@ -68,10 +66,10 @@ module.exports = {
       {
         test   : /\.js$/,
         include: [
-          path.join(__dirname, 'src'),
+          join(__dirname, 'src'),
         ],
         exclude: [
-          path.join(__dirname, 'src/vendor'),
+          join(__dirname, 'src/vendor'),
         ],
         loader : 'babel',
         query  : {
@@ -81,9 +79,8 @@ module.exports = {
       },
       {
         include: [
-          path.join(__dirname, 'node_modules/bootstrap/dist/js/umd'),
-          //path.join(__dirname, 'node_modules/kendo-ui-core/src'),
-          path.join(__dirname, 'src/vendor/telerik.kendoui.2016.1.226.core/src/js'),
+          join(__dirname, 'node_modules/bootstrap/dist/js/umd'),
+          join(__dirname, 'node_modules/kendo-ui-core/js'),
         ],
         loader : 'imports?jQuery=jquery',
       },
@@ -110,14 +107,14 @@ module.exports = {
       {
         test   : /\.html$/,
         include: [
-          path.join(__dirname, 'src'),
+          join(__dirname, 'src'),
         ],
         loader : 'html',
       },
       {
         test   : /\.json$/,
         include: [
-          path.join(__dirname, 'src'),
+          join(__dirname, 'src'),
         ],
         loader : 'json',
       },

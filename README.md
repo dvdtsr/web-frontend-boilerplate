@@ -1,4 +1,10 @@
 # my-frontend-boilerplate
+
+[![travis build](https://img.shields.io/travis/dwiyatci/web-frontend-boilerplate.svg)](https://travis-ci.org/dwiyatci/web-frontend-boilerplate)
+[![version](https://img.shields.io/npm/v/web-frontend-boilerplate.svg)](https://www.npmjs.com/package/web-frontend-boilerplate)
+[![downloads](https://img.shields.io/npm/dt/web-frontend-boilerplate.svg)](http://npm-stat.com/charts.html?package=web-frontend-boilerplate)
+[![WTFPL License](https://img.shields.io/badge/license-WTFPL-red.svg)](https://raw.githubusercontent.com/dwiyatci/web-frontend-boilerplate/master/LICENSE.txt)
+
 My interpretation of how a boilerplate with a minimum set of tools 
 should look like for my frontend application development. :bowtie:
 
@@ -7,7 +13,7 @@ Because I start to keep repeating over and over again scaffolding my
 project structure, especially when constructing my favorite 
 `webpack.config.js`, `webpack.prod.config.js`, and `package.json` files. 
 
-Note that the Webpack configuration should be easily extensible to pack 
+Note that the webpack configuration should be easily extensible to pack 
 popular modern JS frameworks like **React** or **Angular 2**. It might as 
 well be flexible to switch from the [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 
 to more customized Node.js [Express](http://expressjs.com/) server, 
@@ -21,19 +27,19 @@ Molly's automation principle:
 * Bootstrap 4 (and Font Awesome)
 * lodash
 * jQuery
-* Kendo UI Core (err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive:
-* Webpack (and its development server)
+* Kendo UI Core ~~(err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive:~~ ([the dispute appears to be resolved now :dancers:](https://github.com/telerik/kendo-ui-core/issues/1666))
+* webpack (and its development server)
 
 ## Installation
 * Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ [sudo] npm run setup
+$ [sudo] npm run install:global
 $ npm run install:clean
 ```
 
-* For development, start Webpack development server with hot reloading capability:
+* For development, start webpack development server with hot reloading capability:
 ```bash
 $ npm run start
 ```
