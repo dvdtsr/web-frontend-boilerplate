@@ -1,4 +1,10 @@
 # my-frontend-boilerplate
+
+[![travis build](https://img.shields.io/travis/dwiyatci/web-frontend-boilerplate.svg)](https://travis-ci.org/dwiyatci/web-frontend-boilerplate)
+[![version](https://img.shields.io/npm/v/web-frontend-boilerplate.svg)](https://www.npmjs.com/package/web-frontend-boilerplate)
+[![downloads](https://img.shields.io/npm/dt/web-frontend-boilerplate.svg)](https://npm-stat.com/charts.html?package=web-frontend-boilerplate)
+[![WTFPL License](https://img.shields.io/badge/license-WTFPL-red.svg)](LICENSE.txt)
+
 My interpretation of how a boilerplate with a minimum set of tools 
 should look like for my frontend application development. :bowtie:
 
@@ -29,7 +35,7 @@ Molly's automation principle:
 
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ [sudo] npm run setup
+$ [sudo] npm run install:global
 $ npm run install:clean
 ```
 
