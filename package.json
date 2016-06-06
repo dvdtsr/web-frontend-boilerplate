@@ -1,6 +1,6 @@
 {
   "name"           : "web-frontend-boilerplate",
-  "version"        : "0.0.0-semantically-released",
+  "version"        : "0.0.1",
   "description"    : "A boilerplate for developing frontend UI application",
   "keywords"       : [
     "boilerplate",
