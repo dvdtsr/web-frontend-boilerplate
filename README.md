@@ -7,7 +7,7 @@ Because I start to keep repeating over and over again scaffolding my
 project structure, especially when constructing my favorite 
 `webpack.config.js`, `webpack.prod.config.js`, and `package.json` files. 
 
-Note that the Webpack configuration should be easily extensible to pack 
+Note that the webpack configuration should be easily extensible to pack 
 popular modern JS frameworks like **React** or **Angular 2**. It might as 
 well be flexible to switch from the [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 
 to more customized Node.js [Express](http://expressjs.com/) server, 
@@ -22,7 +22,7 @@ Molly's automation principle:
 * lodash
 * jQuery
 * Kendo UI Core ~~(err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive:~~ ([the dispute appears to be resolved now :dancers:](https://github.com/telerik/kendo-ui-core/issues/1666))
-* Webpack (and its development server)
+* webpack (and its development server)
 
 ## Installation
 * Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
@@ -33,7 +33,7 @@ $ [sudo] npm run setup
 $ npm run install:clean
 ```
 
-* For development, start Webpack development server with hot reloading capability:
+* For development, start webpack development server with hot reloading capability:
 ```bash
 $ npm run start
 ```
