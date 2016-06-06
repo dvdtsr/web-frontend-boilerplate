@@ -2,8 +2,8 @@
 
 [![travis build](https://img.shields.io/travis/dwiyatci/web-frontend-boilerplate.svg)](https://travis-ci.org/dwiyatci/web-frontend-boilerplate)
 [![version](https://img.shields.io/npm/v/web-frontend-boilerplate.svg)](https://www.npmjs.com/package/web-frontend-boilerplate)
-[![downloads](https://img.shields.io/npm/dt/web-frontend-boilerplate.svg)](https://npm-stat.com/charts.html?package=web-frontend-boilerplate)
-[![WTFPL License](https://img.shields.io/badge/license-WTFPL-red.svg)](LICENSE.txt)
+[![downloads](https://img.shields.io/npm/dt/web-frontend-boilerplate.svg)](http://npm-stat.com/charts.html?package=web-frontend-boilerplate)
+[![WTFPL License](https://img.shields.io/badge/license-WTFPL-red.svg)](https://raw.githubusercontent.com/dwiyatci/web-frontend-boilerplate/master/LICENSE.txt)
 
 My interpretation of how a boilerplate with a minimum set of tools 
 should look like for my frontend application development. :bowtie:
