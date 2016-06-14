@@ -23,9 +23,9 @@
     "jscs"            : "jscs src",
     "clean"           : "rimraf dist",
     "build"           : "npm run jscs && npm run clean && webpack --config webpack.prod.config.js",
-    "update"          : "updtr",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit"          : "git-cz"
+    "commit"          : "git-cz",
+    "update"          : "updtr"
   },
   "dependencies"   : {
     "bootstrap"    : "4.0.0-alpha.2",
@@ -36,7 +36,6 @@
     "tether"       : "1.3.2"
   },
   "devDependencies": {
-    "babel-core"                    : "6.9.1",
     "babel-loader"                  : "6.2.4",
     "babel-plugin-transform-runtime": "6.9.0",
     "babel-polyfill"                : "6.9.1",
