@@ -121,7 +121,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase       : '/dist',
+    contentBase       : 'dist/',
     noInfo            : true,
     historyApiFallback: true,
   },
