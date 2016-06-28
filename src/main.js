@@ -6,5 +6,5 @@ import './styles';
 import { HelloWindow } from './components/HelloWindow';
 
 HelloWindow
-  .open()
-  .center();
+  .center()
+  .open();

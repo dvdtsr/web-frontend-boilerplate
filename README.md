@@ -11,7 +11,7 @@ should look like for my frontend application development. :bowtie:
 ### Why?
 Because I start to keep repeating over and over again scaffolding my 
 project structure, especially when constructing my favorite 
-`webpack.config.js`, `webpack.prod.config.js`, and `package.json` files. 
+`webpack.config.babel.js` and `package.json` files.
 
 Note that the webpack configuration should be easily extensible to pack 
 popular modern JS frameworks like **React** or **Angular 2**. It might as 
@@ -28,20 +28,19 @@ Molly's automation principle:
 * lodash
 * jQuery
 * Kendo UI Core ~~(err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive:~~ ([the dispute appears to be resolved now :dancers:](https://github.com/telerik/kendo-ui-core/issues/1666))
-* webpack (and its development server)
+* webpack 2 (and its development server)
 
 ## Installation
 * Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ [sudo] npm run install:global
-$ npm run install:clean
+$ npm install
 ```
 
 * For development, start webpack development server with hot reloading capability:
 ```bash
-$ npm run start
+$ npm start
 ```
 You'll find the app running on http://localhost:8080/.
 
