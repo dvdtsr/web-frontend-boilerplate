@@ -1,32 +1,19 @@
-{
-  "parser"  : "babel-eslint",
-  "env"     : {
-    "browser": true,
-    "node"   : true,
-    "es6"    : true
-  },
-  "extends" : [
-    "airbnb"
-  ],
-  "rules"   : {
-    "key-spacing"         : [
-      1,
-      {
-        "align": "colon"
-      }
-    ],
-    // Disable this rule for the moment.
-    // "This was shipped with Webpack resolver version 0.3.0, IIRC. compatible
-    // with only Webpack v1 ATM"
-    // @see https://github.com/benmosher/eslint-plugin-import/issues/182
-    // @see https://github.com/benmosher/eslint-plugin-import/issues/194
-    "import/no-unresolved": 0
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.babel.js"
-      }
-    }
-  }
-}
+---
+parser: babel-eslint
+env:
+  browser: true
+  node: true
+  es6: true
+extends:
+  - airbnb
+rules:
+  no-use-before-define:
+    - error
+    - functions: false
+  comma-dangle:
+    - error
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: ignore

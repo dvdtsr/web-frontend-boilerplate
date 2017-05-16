@@ -7,16 +7,16 @@ module.exports = {
   styleLoader: 'style!css!sass',
 
   styles: {
-    'mixins'         : true,
+    mixins: true,
     'bordered-pulled': true,
-    'core'           : true,
-    'fixed-width'    : true,
-    'icons'          : true,
-    'larger'         : true,
-    'list'           : true,
-    'path'           : true,
+    core: true,
+    'fixed-width': true,
+    icons: true,
+    larger: true,
+    list: true,
+    path: true,
     'rotated-flipped': true,
-    'animated'       : true,
-    'stacked'        : true
-  }
+    animated: true,
+    stacked: true,
+  },
 };
