@@ -6,7 +6,9 @@
 [![WTFPL License](https://img.shields.io/badge/license-WTFPL-red.svg)](https://raw.githubusercontent.com/dwiyatci/web-frontend-boilerplate/master/LICENSE.txt)
 
 My interpretation of how a boilerplate with a minimum set of tools 
-should look like for my frontend application development. :bowtie:
+should look like for my frontend application development. :bowtie::pray:
+
+![Screenshot](screenshot.png)
 
 ### Why?
 Because I start to keep repeating over and over again scaffolding my 

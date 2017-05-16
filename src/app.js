@@ -16,7 +16,7 @@ $(() => $('.container')
           <p>Это ты, куда приводят мечты</p>
           <p>Маяк среди темноты</p>
           <p>Мой океан - это ты</p>
-          <footer>♥</footer>
+          <footer>♥ <cite title="ieva">ieva</cite></footer>
         </blockquote>
       </div>
     </div>
