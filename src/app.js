@@ -5,8 +5,8 @@
 import $ from 'jquery';
 import './styles.css';
 
-$(() => $('.container')
-  .html(`
+$(() => {
+  $('.container').html(`
     <div class="mt-4 card">
       <div class="card-header">
         halo, glenn
@@ -20,5 +20,5 @@ $(() => $('.container')
         </blockquote>
       </div>
     </div>
-  `)
-);
+  `);
+});

@@ -1,5 +1,6 @@
 /**
- * Created by glenn on 29/02/16.
+ * Created by glenn on 29.02.16.
+ * Last updated on 29.10.17.
  */
 
 const { resolve } = require('path');
@@ -16,10 +17,10 @@ const config = {
       'lodash',
       'jquery',
     ],
-    app: './src/app.js',
     polyfills: [
       'babel-polyfill',
     ],
+    app: './src/app.js',
   },
   output: {
     filename: ifProd('[name].[chunkhash].js', '[name].js'),
@@ -41,16 +42,15 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['env', { modules: false }]],
-            plugins: ['transform-runtime'],
+            presets: ['env'],
+            plugins: ['transform-runtime', 'babel-plugin-transform-object-rest-spread'],
+            cacheDirectory: true,
           },
         },
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+        use: ExtractTextPlugin.extract({ use: 'css-loader', }),
       },
       {
         test: /\.json$/,
@@ -85,7 +85,6 @@ const config = {
         'vendor',
         'manifest',
       ],
-      minChunks: Infinity,
     }),
 
     // Caching
@@ -93,9 +92,7 @@ const config = {
       template: './src/index.ejs',
       favicon: './src/favicon.ico',
     }),
-    new InlineManifestWebpackPlugin({
-      name: 'webpackManifest',
-    }),
+    new InlineManifestWebpackPlugin(),
 
     /**
      *
@@ -114,6 +111,7 @@ const config = {
       Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
       Modal: 'exports-loader?Modal!bootstrap/js/dist/modal',
       Popover: 'exports-loader?Popover!bootstrap/js/dist/popover',
+      Popper: ['popper.js', 'default'],
       Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
       Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
       Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
@@ -123,7 +121,6 @@ const config = {
     ...ifProd(
       [
         // Building for Production
-        new webpack.LoaderOptionsPlugin({ minimize: true }),
         new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
       ],
       [
