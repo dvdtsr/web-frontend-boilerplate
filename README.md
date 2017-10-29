@@ -30,25 +30,27 @@ Molly's automation principle:
 * lodash
 * jQuery
 * ~~Kendo UI Core (err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive: ([the dispute appears to be resolved now :dancers:](https://github.com/telerik/kendo-ui-core/issues/1666))~~
-* webpack 2 (and its development server)
+* webpack 3 (and its development server)
 
 ## Installation
 * Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
+* Install [yarn](https://yarnpkg.com/en/docs/install).
+
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ npm run install:clean
+$ yarn install:clean
 ```
 
 * For development, start webpack development server with hot reloading capability:
 ```bash
-$ npm start
+$ yarn start
 ```
 You'll find the app running on https://localhost:8080.
 
 * For production, build frontend static assets:
 ```bash
-$ npm run build
+$ yarn build
 ```
 Then, simply drop all files under `assets` directory to the production server.
 
