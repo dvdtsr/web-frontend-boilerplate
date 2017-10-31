@@ -50,7 +50,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ use: 'css-loader', }),
+        use: ExtractTextPlugin.extract({ use: 'css-loader' }),
       },
       {
         test: /\.json$/,

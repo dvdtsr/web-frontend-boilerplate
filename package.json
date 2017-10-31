@@ -22,8 +22,8 @@
     "start": "webpack-dev-server",
     "webpack": "yarn clean && webpack",
     "build": "yarn clean && cross-env NODE_ENV=production webpack",
-    "lint": "eslint --cache src",
     "clean": "rimraf assets",
+    "lint": "eslint --cache src",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git-cz"
   },
