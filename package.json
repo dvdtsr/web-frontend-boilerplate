@@ -25,6 +25,7 @@
     "clean": "rimraf assets",
     "lint": "eslint --cache src",
     "semantic-release": "semantic-release",
+    "semantic-release-dry-run": "semantic-release --dry-run",
     "commit": "git cz"
   },
   "dependencies": {
