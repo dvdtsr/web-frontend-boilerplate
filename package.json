@@ -24,7 +24,7 @@
     "build": "yarn clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf assets",
     "lint": "eslint --cache src",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
   "dependencies": {
@@ -71,7 +71,7 @@
     "resolve-url-loader": "2.1.1",
     "rimraf": "2.6.2",
     "sass-loader": "6.0.6",
-    "semantic-release": "8.2.0",
+    "semantic-release": "9.1.0",
     "style-loader": "0.19.0",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
@@ -79,7 +79,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   }
 }
