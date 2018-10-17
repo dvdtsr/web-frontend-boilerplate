@@ -1,11 +1,9 @@
 /**
- * Created by glenn on 07/03/16.
+ * Created by glenn on 07.03.16.
+ * Last updated on 17.10.18.
  */
 
 module.exports = {
-  // Default for the style loading
-  styleLoader: 'style!css!sass',
-
   styles: {
     mixins: true,
     'bordered-pulled': true,
@@ -17,6 +15,6 @@ module.exports = {
     path: true,
     'rotated-flipped': true,
     animated: true,
-    stacked: true,
-  },
+    stacked: true
+  }
 };

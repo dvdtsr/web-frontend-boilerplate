@@ -1,15 +1,17 @@
 /**
- * Created by glenn on 29/02/16.
+ * Created by glenn on 29.02.16.
+ * Last updated on 17.10.18.
  */
 
 import $ from 'jquery';
+import { identity } from 'lodash';
 import './styles.css';
 
 $(() => {
-  $('.container').html(`
+  $('#app').html(`
     <div class="mt-4 card">
       <div class="card-header">
-        halo, glenn
+        ${identity('halo, glenn')}
       </div>
       <div class="card-block">
         <blockquote class="card-blockquote">

@@ -1,155 +1,130 @@
 /**
  * Created by glenn on 29.02.16.
- * Last updated on 29.10.17.
+ * Last updated on 17.10.18.
  */
 
 const { resolve } = require('path');
-
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
-const config = {
-  entry: {
-    vendor: [
-      'bootstrap-loader',
-      'lodash',
-      'jquery',
-    ],
-    polyfills: [
-      'babel-polyfill',
-    ],
-    app: './src/app.js',
-  },
-  output: {
-    filename: ifProd('[name].[chunkhash].js', '[name].js'),
-    path: resolve(__dirname, 'assets'),
-    publicPath: '/',
-  },
-  module: {
-    rules: [
-      // Bootstrap 4
-      {
-        test: /bootstrap\/dist\/js\/umd\//,
-        use: 'imports-loader?jQuery=jquery',
-      },
-      {
-        test: /\.js$/,
-        include: [
-          resolve(__dirname, 'src'),
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env'],
-            plugins: ['transform-runtime', 'babel-plugin-transform-object-rest-spread'],
-            cacheDirectory: true,
-          },
+module.exports = env => {
+  const config = {
+    mode: eitherDevOrProd('development', 'production'),
+    entry: {
+      vendor: ['font-awesome-loader', 'bootstrap-loader'],
+      polyfills: ['@babel/polyfill'],
+      app: './src/app.js'
+    },
+    output: {
+      filename: eitherDevOrProd('[name].js', '[name].[chunkhash].js'),
+      path: resolve(__dirname, 'assets')
+    },
+    module: {
+      rules: [
+        // Bootstrap 4
+        {
+          test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/,
+          use: 'imports-loader?jQuery=jquery'
         },
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({ use: 'css-loader' }),
-      },
-      {
-        test: /\.json$/,
-        use: 'json-loader',
-      },
-      {
-        test: /\.html$/,
-        use: 'html-loader',
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: 'url-loader?limit=8192',
-      },
-      {
-        test: /\.(woff2?|svg)$/,
-        use: 'url-loader?limit=10000',
-      },
-      {
-        test: /\.(ttf|eot)$/,
-        use: 'file-loader',
-      },
-    ],
-  },
-  plugins: [
-    // Code Splitting - CSS
-    new ExtractTextPlugin(ifProd('[name].[chunkhash].css', '[name].css')),
-
-    // Code Splitting - Libraries
-    new webpack.optimize.CommonsChunkPlugin({
-      names: [
-        'polyfills',
-        'vendor',
-        'manifest',
-      ],
-    }),
-
-    // Caching
-    new HtmlWebpackPlugin({
-      template: './src/index.ejs',
-      favicon: './src/favicon.ico',
-    }),
-    new InlineManifestWebpackPlugin(),
-
-    /**
-     *
-     * @see https://github.com/shakacode/bootstrap-loader#bootstrap-4-internal-dependency-solution
-     */
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Tether: 'tether',
-      'window.Tether': 'tether',
-      Alert: 'exports-loader?Alert!bootstrap/js/dist/alert',
-      Button: 'exports-loader?Button!bootstrap/js/dist/button',
-      Carousel: 'exports-loader?Carousel!bootstrap/js/dist/carousel',
-      Collapse: 'exports-loader?Collapse!bootstrap/js/dist/collapse',
-      Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
-      Modal: 'exports-loader?Modal!bootstrap/js/dist/modal',
-      Popover: 'exports-loader?Popover!bootstrap/js/dist/popover',
-      Popper: ['popper.js', 'default'],
-      Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
-      Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
-      Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
-      Util: 'exports-loader?Util!bootstrap/js/dist/util',
-    }),
-
-    ...ifProd(
-      [
-        // Building for Production
-        new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-      ],
-      [
-        new webpack.NoEmitOnErrorsPlugin(),
-
-        // HMR
-        new webpack.HotModuleReplacementPlugin(),
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            // https://webpack.js.org/loaders/babel-loader
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
+          }
+        },
+        {
+          test: /\.s?css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.html$/,
+          use: 'html-loader'
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          use: 'url-loader?limit=8192'
+        },
+        {
+          test: /\.(woff2?|svg)$/,
+          use: 'url-loader?limit=10000'
+        },
+        {
+          test: /\.(ttf|eot)$/,
+          use: 'file-loader'
+        }
       ]
-    ),
-  ],
-  devtool: ifProd('source-map', 'eval'),
-  resolve: {
-    modules: [
-      'node_modules',
-      resolve(__dirname, 'src'),
+    },
+    plugins: [
+      new webpack.ProgressPlugin(),
+
+      // Code Splitting - CSS
+      new MiniCssExtractPlugin({
+        filename: eitherDevOrProd('[name].css', '[name].[chunkhash].css')
+      }),
+
+      // Caching
+      new HtmlWebpackPlugin({
+        template: './src/index.ejs',
+        favicon: './src/favicon.ico'
+      }),
+      // new InlineManifestWebpackPlugin(),
+
+      /**
+       *
+       * @see https://github.com/shakacode/bootstrap-loader#bootstrap-4-internal-dependency-solution
+       */
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        Tether: 'tether',
+        'window.Tether': 'tether',
+        Popper: ['popper.js', 'default'],
+        Alert: 'exports-loader?Alert!bootstrap/js/dist/alert',
+        Button: 'exports-loader?Button!bootstrap/js/dist/button',
+        Carousel: 'exports-loader?Carousel!bootstrap/js/dist/carousel',
+        Collapse: 'exports-loader?Collapse!bootstrap/js/dist/collapse',
+        Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
+        Modal: 'exports-loader?Modal!bootstrap/js/dist/modal',
+        Popover: 'exports-loader?Popover!bootstrap/js/dist/popover',
+        Scrollspy: 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy',
+        Tab: 'exports-loader?Tab!bootstrap/js/dist/tab',
+        Tooltip: 'exports-loader?Tooltip!bootstrap/js/dist/tooltip',
+        Util: 'exports-loader?Util!bootstrap/js/dist/util'
+      })
     ],
-  },
-  devServer: {
-    contentBase: resolve(__dirname, 'assets'),
-    compress: true,
-    noInfo: true,
-    historyApiFallback: true,
-    hot: true,
-    https: true,
-  },
+    optimization: {
+      // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+      splitChunks: {
+        chunks: 'all',
+        name: false
+      },
+      runtimeChunk: 'single'
+    },
+    devServer: {
+      contentBase: resolve(__dirname, 'assets'),
+      compress: true,
+      noInfo: false,
+      historyApiFallback: true,
+      https: true
+    }
+  };
+
+  return config;
+
+  function eitherDevOrProd(devStuff, prodStuff) {
+    return env && env.production ? prodStuff : devStuff;
+  }
 };
-
-function ifProd(prodStuff, devStuff) {
-  return (process.env.NODE_ENV === 'production') ? prodStuff : devStuff;
-}
-
-module.exports = config;
