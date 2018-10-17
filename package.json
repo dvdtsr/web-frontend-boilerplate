@@ -1,6 +1,6 @@
 {
   "name": "web-frontend-boilerplate",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "description": "A boilerplate for developing frontend UI application",
   "keywords": [
     "boilerplate",
@@ -23,6 +23,7 @@
     "build": "yarn webpack --env.production --progress",
     "webpack": "yarn clean && webpack",
     "clean": "rimraf assets",
+    "test": "echo \"There is no secret to writing tests... ... there are only secrets to writing testable code!\"",
     "lint": "eslint --cache src",
     "prettier": "prettier --write",
     "semantic-release": "semantic-release",
