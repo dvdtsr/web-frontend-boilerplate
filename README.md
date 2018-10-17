@@ -16,8 +16,8 @@ project structure, especially when constructing my favorite
 `webpack.config.js` and `package.json` files.
 
 Note that the webpack configuration should be easily extensible to pack 
-popular modern JS frameworks like **React** or **Angular 2**. It might as 
-well be flexible to switch from the [webpack-dev-server](http://webpack.github.io/docs/webpack-dev-server.html) 
+popular modern JS frameworks. It might as 
+well be flexible to switch from the [webpack-dev-server](https://github.com/webpack/webpack-dev-server) 
 to more customized Node.js [Express](https://webpack.js.org/guides/development/#webpack-dev-server) server, 
 which uses the [webpack-dev-middleware](https://webpack.js.org/guides/development/#webpack-dev-middleware).
 
@@ -25,15 +25,14 @@ Molly's automation principle:
 > Do it once, just do it. Do it twice, take notes. Do it three times, automate. :raising_hand:
 
 ## What's on the Stack
-* JavaScript ES6/7/8 (Babel)
-* Bootstrap 4 (and Font Awesome)
-* lodash
-* jQuery
-* ~~Kendo UI Core (err, [why is still version 1.0.2 in npmjs](https://www.npmjs.com/package/kendo-ui-core)? Anyone?) :pensive: ([the dispute appears to be resolved now :dancers:](https://github.com/telerik/kendo-ui-core/issues/1666))~~
-* webpack 3 (and its development server)
+* JavaScript ES6+ (Babel).
+* Bootstrap 4 (and Font Awesome).
+* lodash.
+* jQuery.
+* webpack 4 (and its development server).
 
 ## Installation
-* Install Node.js and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
+* Install Node.js LTS and npm from its [website](https://nodejs.org), or better even, use [nvm](https://github.com/creationix/nvm).
 
 * Install [yarn](https://yarnpkg.com/en/docs/install).
 
