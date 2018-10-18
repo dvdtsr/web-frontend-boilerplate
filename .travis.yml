@@ -1,6 +1,4 @@
 sudo: required
-env:
-- NPM_TOKEN=bdce7645-fd4b-4923-a893-191a90a0fa9b
 before_install: # if "install" is overridden
 # Repo for Yarn
 - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
